@@ -5,22 +5,25 @@
 <br />
 <br />
 <div class="content padding has-header">
-	<div class="list">
-	  	<label class="item item-input item-stacked-label">
-	    	<span class="input-label">Gasoline Price</span>
-	    	<input type="text" placeholder="Ex:2.99">
-	  	</label>
-		<label class="item item-input item-stacked-label">
-		   <span class="input-label">Ethanol Price</span>
-		   <input type="text" placeholder="Ex:2.99">
-		</label>
-	</div>
-	<br />
-	<button class="button icon-left ion-ios-calculator button-block button-positive">
-		Calculate
-	</button>
-	<br />
-	<br />
+	<form name="form" novalidate="novalidate">
+		<div class="list">
+		  	<label class="item item-input item-stacked-label">
+		    	<span class="input-label">Gasoline Price</span>
+		    	<input name="gas" ng-model="data.gas" ng-class="{used: form.gas.$dirty}" 
+		    	type="number" step="0.01" min="0.01" max="99" required placeholder="Ex:2.99">
+		  	</label>
+			<label class="item item-input item-stacked-label">
+			   <span class="input-label">Ethanol Price</span>
+			   <input name="ethanol" ng-model="data.ethanol" ng-class="{used: form.ethanol.$dirty}"  required type="number" step="0.01" min="0.01" max="99" placeholder="Ex:2.99">
+			</label>
+		</div>
+		<br />
+		<button class="button icon-left ion-ios-calculator button-block button-positive" ng-click="calculate(data)">
+			Calculate
+		</button>
+		<br />
+		<br />
+	</form>
 	<div class="card">
 		<div class="response item item-text-wrap text-center">
 	  		<h1 class="ion-erlenmeyer-flask"></h2>
